@@ -5,9 +5,8 @@ const { User } = require("../models/userModel");
 const secretKey = process.env.SECRET_KEY;
 
 async function signInController(req, res) {
-  console.log(secretKey, MongoUrl);
   const { email, password } = req.body;
-
+  console.log(email, password);
   const user = await User.findOne({ email });
 
   if (!user) {
