@@ -1,13 +1,12 @@
 import React from "react";
-import "../components/signup/signUp.css";
 import { Link } from "react-router-dom";
-
-function SignUp() {
+import "./signIn.css";
+function SignIn() {
   return (
     <div className="mainContainer">
       <div className="mainDiv">
         <h1>Logo</h1>
-        <h2>Create New Account</h2>
+        <h2>Enter your credentials to access your account</h2>
         <form>
           <div>
             <input name="email" type="email" required placeholder="Mail ID" />
@@ -20,25 +19,18 @@ function SignUp() {
               placeholder="Password"
             />
           </div>
-          <div>
-            <input
-              name="confirmPassword"
-              type="text"
-              required
-              placeholder="Confirm Password "
-            />
-          </div>
-          <button id="signUpButton" type="submit">
-            Sign up
+
+          <button id="signInButton" type="submit">
+            Sign In
           </button>
         </form>
 
-        <Link to="/">
-          <h3>Sign In</h3>
+        <Link to="signup">
+          <h3>Sign Up</h3>
         </Link>
       </div>
     </div>
   );
 }
 
-export default SignUp;
+export default SignIn;
