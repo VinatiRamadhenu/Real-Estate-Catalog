@@ -1,0 +1,12 @@
+/* addnewproperty.css */
+.center {
+    text-align: center;
+  }
+  
+  .tab-content {
+    padding: 20px;
+  }
+  .form-container {
+    max-width: 1000px; 
+    margin: 0 auto; 
+  }  
