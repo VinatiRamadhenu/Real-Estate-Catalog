@@ -29,7 +29,7 @@ function SignUp() {
           toast.success("Sign Up successful");
           setTimeout(() => {
             navigate("/");
-          }, 3000);
+          }, 1000);
         }
       } catch (error) {
         if (error.response && error.response.status === 500) {
