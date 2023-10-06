@@ -4,7 +4,7 @@ import "./signIn.css";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import logo from "../../realEstateLogo.png";
 function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -34,11 +34,23 @@ function SignIn() {
   return (
     <div className="mainContainer">
       <div className="mainDiv">
-        <h1>Logo</h1>
-        <h2>Enter your credentials to access your account</h2>
+        <img
+          style={{
+            width: "20%",
+
+            marginLeft: "40%",
+            marginRight: "40%",
+          }}
+          src={logo}
+          alt="Logo"
+        />
+        <h2 className="action_text">
+          Enter your credentials to access your account
+        </h2>
         <form onSubmit={submitHandler}>
           <div>
             <input
+              className="Input_box"
               name="email"
               value={email}
               onChange={(e) => {
@@ -51,6 +63,7 @@ function SignIn() {
           </div>
           <div>
             <input
+              className="Input_box"
               name="password"
               type="password"
               value={password}

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "../components/signup/signUp.css";
+import "./signUp.css";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import logo from "../../realEstateLogo.png";
 import axios from "axios";
 function SignUp() {
   const [email, setEmail] = useState("");
@@ -43,11 +44,21 @@ function SignUp() {
   return (
     <div className="mainContainer">
       <div className="mainDiv">
-        <h1>Logo</h1>
-        <h2>Create New Account</h2>
+        <img
+          style={{
+            width: "20%",
+
+            marginLeft: "40%",
+            marginRight: "40%",
+          }}
+          src={logo}
+          alt="Logo"
+        />
+        <h2 className="action_text">Create New Account</h2>
         <form>
           <div>
             <input
+              className="Input_box"
               name="email"
               value={email}
               onChange={(e) => {
@@ -60,6 +71,7 @@ function SignUp() {
           </div>
           <div>
             <input
+              className="Input_box"
               value={password}
               onChange={(e) => {
                 setPassword(e.target.value);
@@ -72,6 +84,7 @@ function SignUp() {
           </div>
           <div>
             <input
+              className="Input_box"
               value={confirmPassword}
               name="confirmPassword"
               type="text"
