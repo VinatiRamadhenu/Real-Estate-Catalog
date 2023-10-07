@@ -22,10 +22,13 @@ function SignUp() {
     e.preventDefault();
     if (passwordMatched) {
       try {
-        const response = await axios.post("http://localhost:5001/signup", {
-          email: email,
-          password: password,
-        });
+        const response = await axios.post(
+          "https://therealstatebackend.onrender.com/signup",
+          {
+            email: email,
+            password: password,
+          }
+        );
         if (response.status === 201) {
           toast.success("Sign Up successful");
           setTimeout(() => {
