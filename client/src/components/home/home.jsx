@@ -4,7 +4,9 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { AiOutlineSearch, AiOutlinePlus, AiOutlineEye } from "react-icons/ai";
+
 import "./home.css";
+import { useNavigate } from "react-router-dom";
 function Home() {
   const tableData = [
     {
@@ -89,6 +91,10 @@ function Home() {
       daysLeft: "18",
     },
   ];
+  const navigate = useNavigate();
+  const addNewPropHandler = () => {
+    navigate("/addnewprop");
+  };
 
   return (
     <>
@@ -109,7 +115,7 @@ function Home() {
               </InputGroup>
             </div>
             <div>
-              <Button className="addNewButton">
+              <Button className="addNewButton" onClick={addNewPropHandler}>
                 {" "}
                 <AiOutlinePlus />
                 Add Property

@@ -31,7 +31,7 @@ export default function SideNav() {
         items={[
           {
             title: "Property",
-            itemId: "/dashboard",
+            itemId: "/home",
 
             elemBefore: () => <BiHome />,
           },
