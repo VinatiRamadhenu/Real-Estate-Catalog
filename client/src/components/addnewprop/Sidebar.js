@@ -20,7 +20,7 @@ function Sidebar(){
                 <UncontrolledExample />
             </div>
             <div className="logo-container">
-            <img style={{ width: "100px", height: "80px" }} src='https://cdn.vectorstock.com/i/1000x1000/94/24/real-estate-company-logo-designs-vector-24429424.webp' alt="Logo" />
+            <img style={{ width: "250px", height: "80px" }} src='https://cdn.vectorstock.com/i/1000x1000/94/24/real-estate-company-logo-designs-vector-24429424.webp' alt="Logo" />
         </div>
         </div>
     )

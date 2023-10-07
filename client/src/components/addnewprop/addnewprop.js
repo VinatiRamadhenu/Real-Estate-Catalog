@@ -1,14 +1,25 @@
-import React, { useRef, useState } from 'react';
+// import React, { useRef, useState } from 'react';
 import { Tabs,Tab,Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import './addnewprop.css';
+import { useFormContext } from '../../context/Formcontext';
+import { useEffect } from 'react';
+
 
  export function BasicInfoForm() {
+    const { saveFormData } = useFormContext();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = {}; 
+    saveFormData('basicInfo', data);
+  };
    
     return (
+        <form onSubmit={handleSubmit}>
         <div className='form-container'>
       <Form>
         <Row>
@@ -78,7 +89,8 @@ import './addnewprop.css';
         <Button style={{display:"inline-block", margin:"20px"}}>
                 Previous
             </Button>
-            <Button  style={{display:"inline-block",margin:"20px"}}>Save and Continue</Button>
+            <Button type="submit" style={{display:"inline-block",margin:"20px"}}>Save and Continue</Button>
+
             </div>
 
             </Col>
@@ -86,12 +98,22 @@ import './addnewprop.css';
       </Row>
       </Form>
       </div>
+      </form>
     );
   }
 
 export function PropertyDetailsForm (){
+    const { saveFormData } = useFormContext();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = {}; 
+    saveFormData('basicInfo', data);
+  };
     
     return (
+    <form onSubmit={handleSubmit}>
+
         <Form>
           <Row>
             <Col>
@@ -197,17 +219,28 @@ export function PropertyDetailsForm (){
         <Button style={{display:"inline-block", margin:"20px"}}>
                 Previous
             </Button>
-            <Button  style={{display:"inline-block",margin:"20px"}}>Save and Continue</Button>
+            <Button type="submit" style={{display:"inline-block",margin:"20px"}}>Save and Continue</Button>
             </div>
 
             </Col>
         </Form>
+        </form>
+        
       );
 
 }
 
 export function GeneralInfoForm() {
+    const { saveFormData } = useFormContext();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = {}; 
+    saveFormData('basicInfo', data);
+  };
     return (
+    <form onSubmit={handleSubmit}>
+
         <Form>
           <Row>
             <Col>
@@ -265,17 +298,31 @@ export function GeneralInfoForm() {
 
             </Col>
           </Form>
+          </form>
           )
 }
 
 export function LocationInfo(){
+    const { saveFormData, setFormData, formData} = useFormContext();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = {}; 
+    saveFormData('basicInfo', data);
+  };
+
+  useEffect(()=>{
+    console.log(formData);
+  },[formData])
     return (
+    <form onSubmit={handleSubmit}>
+
         <Form>
           <Row>
             <Col>
             <Form.Group controlId="email">
               <Form.Label>Email</Form.Label>
-              <Form.Control placeholder="Email" />
+              <Form.Control onChange={(e)=>{setFormData(...formData,e.target.value)}} name='email'  value={formData.email} placeholder="Email" />
               </Form.Group>
             </Col>
             <Col>
@@ -337,36 +384,17 @@ export function LocationInfo(){
         <Button style={{display:"inline-block", margin:"20px"}}>
                 Previous
             </Button>
-            <Button  style={{display:"inline-block",margin:"20px"}}>Add New Property</Button>
+            <Button type='submit' style={{display:"inline-block",margin:"20px"}}>Add New Property</Button>
             </div>
 
             </Col>
           </Form>
+          </form>
           )
 }
 
-function UncontrolledExample() {
+function addNewProperty() {
 
-
-    const [activeTab, setActiveTab] = useState('home');
-
-  const handleSaveAndContinue = () => {
-    const nextTab = getNextTab(activeTab);
-    setActiveTab(nextTab);
-  };
-
-  const getNextTab = (currentTab) => {
-    switch (currentTab) {
-      case 'home':
-        return 'profile';
-      case 'profile':
-        return 'contact';
-      case 'contact':
-        return 'location';
-      default:
-        return 'home';
-    }
-  };
   return (
     
     <Tabs
@@ -375,19 +403,19 @@ function UncontrolledExample() {
       className="mb-3"
       >
       <Tab eventKey="home" title="Basic Info">
-      <BasicInfoForm onSaveAndContinue={handleSaveAndContinue}
+      <BasicInfoForm
        />
       </Tab>
       <Tab eventKey="profile" title="Property Details">
-        <PropertyDetailsForm onSaveAndContinue={handleSaveAndContinue}
+        <PropertyDetailsForm 
         />
       </Tab>
       <Tab eventKey="contact" title="General Info">
-        <GeneralInfoForm onSaveAndContinue={handleSaveAndContinue}
+        <GeneralInfoForm 
         />
       </Tab>
       <Tab eventKey="location" title="Location Info">
-        <LocationInfo onSaveAndContinue={handleSaveAndContinue}
+        <LocationInfo 
         />
       </Tab>
     </Tabs>
@@ -395,4 +423,4 @@ function UncontrolledExample() {
   );
 }
 
-export default UncontrolledExample;
+export default addNewProperty;
