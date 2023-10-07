@@ -13,7 +13,7 @@ function App() {
         <Route path="/" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/sidebar" element={<AddNewProperty />} />
+        <Route path="/addnewprop" element={<AddNewProperty />} />
       </Routes>
     </Router>
   );
