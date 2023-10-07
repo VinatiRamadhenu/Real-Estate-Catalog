@@ -16,7 +16,7 @@
 .logo-container {
     position: fixed;
     top: 10px;
-    left: 10px;
+    left: -1px;
     z-index: 2;
   }
   
