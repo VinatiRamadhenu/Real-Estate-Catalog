@@ -23,7 +23,7 @@ function SignUp() {
     if (passwordMatched) {
       try {
         const response = await axios.post(
-          "https://therealstatebackend.onrender.com/signup",
+          "http://localhost:5001/signup",
           {
             email: email,
             password: password,
