@@ -4,7 +4,8 @@ require("dotenv").config();
 
 const cors = require("cors");
 const corsOptions = {
-  origin: "https://therealestate.onrender.com",
+  //origin: "https://therealestate.onrender.com",
+  origin: "http://localhost:3000"
 };
 
 app.use(cors(corsOptions));
